@@ -27,3 +27,6 @@ assets/vendor/*
 scripts/lib/execute_jobs.lock
 
 scripts/execute_jobs.lock
+
+plugins/export-zip/
+plugins/export-print-pdf/

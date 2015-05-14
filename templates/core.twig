@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Datawrapper{% if title and title != 'Datawrapper' %} :: {{ title }}{% endif %}</title>
+    <title>{% if config.custom_title %}{{ config.custom_title }}{% else %}Datawrapper{% endif %}{% if title and title != 'Datawrapper' %} :: {{ title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datawrapper is an open source tool helping everyone to create simple, correct and embeddable charts in minutes.">
     <meta name="author" content="Mirko Lorenz, Nicolas Kayser-Bril, Gregor Aisch">
@@ -101,7 +101,7 @@
 
         <p class="pull-right" style="text-align:right">
           <a href="#top">{% trans "Back to top" %}</a>
-          <span class="version">version <a href="https://github.com/datawrapper/datawrapper/blob/master/CHANGELOG.md#{{ DW_VERSION | replace({ '.': '' }) }}">{{ DW_VERSION }}</a> {{ BRANCH | raw }}</span>
+          <span class="version">Versão <a href="https://github.com/datawrapper/datawrapper/blob/master/CHANGELOG.md#{{ DW_VERSION | replace({ '.': '' }) }}">{{ DW_VERSION }}</a> {{ BRANCH | raw }}</span>
         </p>
 
         <p>
@@ -110,17 +110,15 @@
               {% include (line) %}
             {% endfor %}
           {% else %}
-            {% trans %}
-            Datawrapper is an <a href="https://github.com/datawrapper/datawrapper">open source</a> project by <a href="http://abzv.de">ABZV</a> - a German training institution for newspaper journalists.
-            {% endtrans %}
+            Marvin é baseado no projeto de código aberto <a href="https://github.com/datawrapper/datawrapper">Datawrapper</a>. Esta versão é mantida pela equipe arte.online@grupofolha.com.br
           {% endif %}
         </p>
         {% if config.footer_links %}
-        <div class="footer-links">
+        <!-- <div class="footer-links">
           {% for link in config.footer_links %}
             <a href="{{ link.url | replace({'%lang': language }) }}">{{ link.title[language] }}</a>
           {% endfor %}
-        </div>
+        </div> -->
         {% endif %}
       </footer>
     {% endif %}

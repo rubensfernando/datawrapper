@@ -1,4 +1,4 @@
-# Datawrapper
+# Datawrapper for Folha de S.Paulo
 
 Datawrapper is a tool that enables anyone to create visualizations in seconds, without any programming skills.
 

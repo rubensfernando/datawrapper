@@ -246,17 +246,17 @@ class Chart extends BaseChart {
                 'highlighted-values' => array()
             ),
             'describe' => array(
-                'source-name' => '',
+                'source-name' => 'Fonte ????',
                 'source-url' => '',
                 'number-format' => '-',
                 'number-divisor' => 0,
                 'number-append' => '',
                 'number-prepend' => '',
-                'intro' => ''
+                'intro' => '[ Linha fina ]'
             ),
             'publish' => array(
-                'embed-width' => 600,
-                'embed-height' => 400
+                'embed-width' => 620,
+                'embed-height' => 455
             )
         );
     }
