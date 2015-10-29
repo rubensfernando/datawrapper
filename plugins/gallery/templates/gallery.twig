@@ -89,6 +89,53 @@ dw.backend.ready(function(){
 });
 
 </script>
+<script type="text/javascript">
+$(function(){
+  //*
+
+   // */
+   {% if user.isAdmin %}
+    $('.thumbnail > a').click(function(e) {
+        e.preventDefault();
+        dw.backend.popupChart($(e.target).parents('.chart').data('id'), true);
+    });
+
+    $('a.edit').click(function(e) {
+        e.preventDefault();
+        var chart = $(e.target).parents('.chart');
+        var chart_id = $('.thumbnail > a', chart).attr('href').substr(2);
+        var url_edit = '/chart/'+chart_id+'/edit';
+        location.href = url_edit;
+    });
+   {% endif %}
+
+    $('.chart a.duplicate').click(function(e) {
+        e.preventDefault();
+        var id = $(e.target).parents('.chart').data('id');
+        $.ajax({
+            url: '/api/charts/'+id+'/copy',
+            type: 'POST',
+            success: function(data) {
+                try {
+                    if (data.status == "ok") {
+                        // redirect to copied chart
+                        location.href = '/chart/'+data.data.id+'/visualize';
+                    } else {
+                        console.warn(data);
+                    }
+                } catch (e) {
+                    console.warn(data);
+                }
+            }
+        });
+    });
+});
+
+$('body').load(function() {
+
+});
+
+</script>
 
 {{ parent() }}
 {% endblock %}

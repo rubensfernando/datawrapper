@@ -37,10 +37,27 @@
 <li class="span3 chart" data-id="{{ chart.id }}">
     <div data-id="{{ chart.id }}" data-bg="{{ chart.metadata.publish.background }}" data-w="{{ chart.metadata.publish['embed-width'] }}" data-h="{{ chart.metadata.publish['embed-height'] }}" class="thumbnail">
         <h3><a href="/gallery/#/{{ chart.id }}" style="color:{% if  chart.metadata.publish.text %}{{ chart.metadata.publish.text }}{% else %}#000{% endif %};text-shadow:1px 1px 3px {% if  chart.metadata.publish.background %}{{ chart.metadata.publish.background }}{% else %}#fff{% endif %};">{% if chart.title != '' %}{{ chart.title | replace({'<br/>': ' - '}) | striptags }}{% else %}{{ chart.id }}{% endif %}</a></h3>
+        {% if user.isAdmin %}
+          <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                          <i class="icon-wrench"></i>
+                        <span class="caret"></span>
+                        </a>
+                         <ul class="dropdown-menu">
+                            <li><a class="edit" href="#"><i class="icon-edit"></i> {% trans "Edit" %}</a></li>
+                            <li><a class="duplicate" href="#"><i class="icon-plus"></i> {% trans "Duplicate" %}</a></li>
+                            {# <li><a href="/chart/{{ chart.id }}/static?w=700&amp;h=490&amp;f=pdf&amp;padding=20"><i class="icon-download"></i> {% trans "Save as PDF" %}</a></li>
+                            <li class="divider"></li> #}
+                            <!-- <li><a href="" class="delete"><i class="icon-remove"></i> {% trans "Delete" %}</a></li> -->
+                        <!-- dropdown menu links -->
+                        </ul>
+                     </div>
+          {% endif %}
 
         <a href="{{ gallerythumb_url is defined ? gallerythumb_url : '/gallery' }}#/{{ chart.id }}">
             <img src="{% if chart.hasPreview %}//{{ DW_CHART_CACHE_DOMAIN }}/{{ chart.id }}/m.png{% else %}/static/plugins/gallery/nothumb.png{% endif %}" width="260" alt="" style="background:{{ chart.metadata.publish.background }}">
         </a>
+
     </div>
 </li>
 {% endblock %}
