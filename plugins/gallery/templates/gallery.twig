@@ -103,7 +103,7 @@ $(function(){
     $('a.edit').click(function(e) {
         e.preventDefault();
         var chart = $(e.target).parents('.chart');
-        var chart_id = $('.thumbnail > a', chart).attr('href').substr(2);
+        var chart_id = $(e.target).parents('.chart').data('id');
         var url_edit = '/chart/'+chart_id+'/edit';
         location.href = url_edit;
     });
