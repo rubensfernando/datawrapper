@@ -131,7 +131,7 @@ dw.utils = {
         if (!$.support.leadingWhitespace) maxH -= 15;
         maxH -= $('body').css('padding-top').replace('px', '');
         maxH -= $('body').css('padding-bottom').replace('px', '');
-        return maxH;
+        return (maxH > 199 ? maxH : 200);
     },
 
     /*

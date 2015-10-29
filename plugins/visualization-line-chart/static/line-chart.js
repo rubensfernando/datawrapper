@@ -31,7 +31,7 @@
                 y: yScale()
             },
             legend = {
-                pos: vis.get('legend-position', 'right'),
+                pos: vis.get('legend-position', 'top'),
                 xoffset: 0,
                 yoffset: -10
             },

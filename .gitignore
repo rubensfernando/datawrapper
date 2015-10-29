@@ -30,3 +30,8 @@ scripts/execute_jobs.lock
 
 plugins/export-zip/
 plugins/export-print-pdf/
+.composer/*
+.subversion/*
+dw.js/node_modules/*
+.ssh/known_hosts
+charts/

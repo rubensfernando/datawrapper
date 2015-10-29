@@ -1,0 +1,87 @@
+
+#vis-options .vis-option-group.vis-option-type-color-category-selector .vis-option-help {
+    top: 26px;
+}
+
+
+.color-category-selector .presets li a {
+    height: 20px;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 0;
+}
+
+.color-category-selector .display .step,
+.color-category-selector .presets .step {
+    display: inline-block;
+    height: 18px;
+    top: 3px;
+    width: 15px;
+}
+
+.color-category-selector .display .step {
+    top: 4px;
+    height: 19px;
+    display: inline-block;
+    width: 10px;
+}
+
+.color-category-selector .display {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: middle;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+    width: 80px;
+    height: 18px;
+    padding: 5px;
+}
+
+.vis-option-type-color-category-selector .custom-colors .category-color {
+    width: 32%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.vis-option-type-color-category-selector .custom-colors .category-color .color {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #fff;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.vis-option-type-color-category-selector .custom-colors .category-color .key-label {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 24px;
+}
+
+.vis-option-type-color-category-selector .custom-colors.truncate-12
+  .category-color + .category-color + .category-color + .category-color
++ .category-color + .category-color + .category-color + .category-color
++ .category-color + .category-color + .category-color + .category-color
++ .category-color {
+    display: none;
+}
+
+.vis-option-type-color-category-selector .custom-colors + .show-all {
+    display: none;
+}
+
+.vis-option-type-color-category-selector .custom-colors.truncate-12 + .show-all {
+    display: block;
+}

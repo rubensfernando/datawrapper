@@ -28,6 +28,7 @@ dw.utils.filter = function (column, active, type, format) {
                 cb(column.val(i), i);
             }
         });
+        window.clickCount(i);
     }
 
 

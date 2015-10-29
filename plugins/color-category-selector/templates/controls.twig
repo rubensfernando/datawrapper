@@ -1,0 +1,58 @@
+{% if option.type == 'color-category-selector' %}
+
+    <fieldset id="{{ key }}" class="color-category-selector" style="margin-top:10px">
+        <div class="control-group" style="margin-bottom:10px">
+            <label class="separator">{% trans "Category Colors" %}</label>
+
+            <div class="pull-left">
+                <label>{% trans "Presets" %}</label>
+
+                <div class="input-append">
+                    <div class="display"></div>
+                    <div class="btn-group">
+                        <button type="button" class="preset-button btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="presets dropdown-menu"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reset-colors pull-left">
+                <label>{% trans "Reset" %}</label>
+                <a class="btn" href="#"><i class="icon-trash"></i></a>
+            </div>
+        </div>
+
+        <div class="custom-colors">
+
+            <p>{% trans "Click the color swatches to pick custom colors" %}</p>
+
+            <div class="category-color">
+                <div class="color" style="background:red"></div>
+                <div class="key-label">Key</div>
+            </div>
+            <div class="category-color">
+                <div class="color" style="background:red"></div>
+                <div class="key-label">Key</div>
+            </div>
+            <div class="category-color">
+                <div class="color" style="background:red"></div>
+                <div class="key-label">Key</div>
+            </div>
+            <div class="category-color">
+                <div class="color" style="background:red"></div>
+                <div class="key-label">Key</div>
+            </div>
+            <div class="category-color">
+                <div class="color" style="background:red"></div>
+                <div class="key-label">Key</div>
+            </div>
+
+        </div>
+        <a class="show-all" href="#">{% trans "show all..." %}</a>
+
+
+    </fieldset>
+
+{% endif %}

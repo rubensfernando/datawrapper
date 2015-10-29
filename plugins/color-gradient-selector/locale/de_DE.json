@@ -1,0 +1,23 @@
+{
+  "Color gradient":"Farbverlauf",
+  "Presets":"Vorauswahl",
+  "Reverse":"Umkehren",
+  "reverse colors":"Farben umkehren",
+  "customize":"anpassen",
+  "Color stops":"Farbanzahl",
+  "Bookmark":"Merken",
+  "bookmark this gradient":"Farbverlauf merken",
+  "Classification":"Klasseneinteilung",
+  "Count":"Anzahl",
+  "Limits":"Klassenbreiten",
+  "equidistant":"gleich",
+  "equidistant rounded":"gleich (gerundet)",
+  "nice breaks":"schöne Klassengrenzen",
+  "quantiles":"Quantile",
+  "custom limits":"Freie Klassengrenzen",
+  "reset":"zurücksetzen",
+  "Value range":"Wertebereich",
+  "Minimum":"Minimum",
+  "Center":"Zentrum",
+  "Maximum":"Maximum"
+}

@@ -94,13 +94,13 @@ class Chart extends BaseChart {
     /**
      * get the path where this charts data file is stored
      */
-    protected function getDataPath() {
-        $path = ROOT_PATH . 'charts/data/' . $this->getCreatedAt('Ym');
+    public function getDataPath() {
+        $path = chart_publish_directory() . 'data/' . $this->getCreatedAt('Ym');
         return $path;
     }
 
-    protected function getStaticPath() {
-        $path = ROOT_PATH . 'charts/static/' . $this->getID();
+    public function getStaticPath() {
+        $path = chart_publish_directory() . 'static/' . $this->getID();
         return $path;
     }
 
@@ -196,7 +196,10 @@ class Chart extends BaseChart {
         if (empty($key)) return $meta;
         $keys = explode('.', $key);
         $p = $meta;
-        foreach ($keys as $key) $p = $p[$key];
+        foreach ($keys as $key) {
+            if (isset($p[$key])) $p = $p[$key];
+            else return null;
+        }
         return $p;
     }
 
@@ -246,13 +249,13 @@ class Chart extends BaseChart {
                 'highlighted-values' => array()
             ),
             'describe' => array(
-                'source-name' => 'Fonte ????',
+                'source-name' => 'Fontes: [Coloque aqui]',
                 'source-url' => '',
                 'number-format' => '-',
                 'number-divisor' => 0,
                 'number-append' => '',
                 'number-prepend' => '',
-                'intro' => '[ Linha fina ]'
+                'intro' => 'LINHA FINA'
             ),
             'publish' => array(
                 'embed-width' => 620,
@@ -285,7 +288,7 @@ class Chart extends BaseChart {
     public function redirectPreviousVersions() {
         $current_target = $this->getCDNPath();
         $redirect_html = '<html><head><meta http-equiv="REFRESH" content="0; url=/'.$current_target.'"></head></html>';
-        $redirect_file = ROOT_PATH . 'charts/static/' . $this->getID() . '/redirect.html';
+        $redirect_file = chart_publish_directory() . 'static/' . $this->getID() . '/redirect.html';
         file_put_contents($redirect_file, $redirect_html);
         $files = array();
         for ($v=0; $v < $this->getPublicVersion(); $v++) {

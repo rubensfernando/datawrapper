@@ -1,0 +1,163 @@
+
+#vis-options .vis-option-group.vis-option-type-color-gradient-selector .vis-option-help {
+    top: 26px;
+}
+
+.color-gradient-selector .gradient-editor {
+    position: relative;
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+
+.color-gradient-selector .gradient-editor .color {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    box-shadow: 0 5px 2px rgba(0,0,0,.15);
+    width: 15px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-top: 4px solid #fff;
+    border-radius: 10px 10px 2px 2px;
+    background-image: -webkit-linear-gradient(top, hsla(0,0%,100%,.2), hsla(0,0%,100%,0), hsla(0,0%,100%,0));
+    background-image:    -moz-linear-gradient(top, hsla(0,0%,100%,.2), hsla(0,0%,100%,0), hsla(0,0%,100%,0));
+    background-image:     -ms-linear-gradient(top, hsla(0,0%,100%,.2), hsla(0,0%,100%,0), hsla(0,0%,100%,0));
+    background-image:      -o-linear-gradient(top, hsla(0,0%,100%,.2), hsla(0,0%,100%,0), hsla(0,0%,100%,0));
+    background-image:         linear-gradient(top, hsla(0,0%,100%,.2), hsla(0,0%,100%,0), hsla(0,0%,100%,0));
+}
+
+.color-gradient-selector .gradient-editor .color:hover {
+    box-shadow: 0 6px 3px rgba(0,0,0,.2);
+}
+
+.color-gradient-selector .presets li a {
+    height: 23px;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 5px;
+}
+
+.color-gradient-selector .presets.dropdown-menu {
+    left: auto;
+    right: 0;
+    min-width: 120px;
+    width: 120px;
+}
+
+.color-gradient-selector .presets li a {
+    height: 20px;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 0;
+}
+
+.color-gradient-selector .presets .step {
+    display: inline-block;
+    height: 18px;
+    top: 3px;
+    width: 5px;
+}
+
+.color-gradient-selector .gradient-preview {
+    height: 20px;
+    border-radius: 5px;
+}
+
+.color-gradient-selector .gradient-preview div {
+    height: 20px;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.color-gradient-selector .display .step {
+    top: 4px;
+    height: 19px;
+    display: inline-block;
+    width: 4px;
+}
+
+.color-gradient-selector .display {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: middle;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+    width: 80px;
+    height: 18px;
+    padding: 5px;
+}
+
+.color-gradient-selector .custom-limits {
+    position: relative;
+    clear: both;
+    margin-top: 25px;
+}
+
+.color-gradient-selector .custom-limits .limit {
+    border-left: 1px dashed #999;
+    position: absolute;
+    bottom: 0;
+}
+
+.color-gradient-selector .custom-limits .limit.fixed {
+    border-left: 1px solid #000;
+    position: absolute;
+    bottom: 0;
+}
+
+.color-gradient-selector .custom-limits .limit .bg {
+    height: 12px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.color-gradient-selector .custom-limits .limit .lbl {
+    position: absolute;
+    top: -20px;
+    right: 101%;
+    font-size: 13px;
+    color: #999;
+}
+
+.color-gradient-selector .custom-limits .limit .lbl {
+    color: #888;
+}
+
+.color-gradient-selector .custom-limits .limit.fixed .lbl[contenteditable] {
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #888;
+    padding: 1px 3px 0;
+}
+
+.color-gradient-selector .custom-limits .limit .lbl[contenteditable]:focus {
+    border: 1px solid rgba(83, 170, 236, 0.8);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.1), rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, rgba(83, 167, 236, 0.596078) 0px 0px 8px 0px;
+    color: #222;
+}
+.color-gradient-selector .custom-limits .limit.fixed .lbl[contenteditable] {
+    color: #000;
+}
+
+.color-gradient-selector .custom-limits .limit:last-child {
+    width: 1px;
+}
+
+.color-gradient-selector .custom-limits .limit:last-child .bg {
+    display: none;
+}

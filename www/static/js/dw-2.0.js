@@ -1,4 +1,4 @@
-/*! datawrapper - v1.8.2 - 2015-01-14 *///
+/*! datawrapper - v1.9.3 - 2015-10-29 *///
 // NOTE: This file is auto-generated using /dw.js/make
 // from the source files /dw.js/src/*.js.
 //
@@ -1150,7 +1150,7 @@ dw.utils = {
         if (!$.support.leadingWhitespace) maxH -= 15;
         maxH -= $('body').css('padding-top').replace('px', '');
         maxH -= $('body').css('padding-bottom').replace('px', '');
-        return maxH;
+        return (maxH > 199 ? maxH : 200);
     },
 
     /*
@@ -1298,6 +1298,7 @@ dw.utils.filter = function (column, active, type, format) {
                 cb(column.val(i), i);
             }
         });
+        window.clickCount(i);
     }
 
 

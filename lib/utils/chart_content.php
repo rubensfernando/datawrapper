@@ -42,19 +42,19 @@ function get_chart_content($chart, $user, $published = false, $debug = false) {
 
     if ($published && !$debug && !empty($GLOBALS['dw_config']['asset_domain'])) {
         $base_js = array(
-            '//' . $GLOBALS['dw_config']['asset_domain'] . '/globalize.min.js',
-            '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js',
-            '//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'
+            '//' . $GLOBALS['dw_config']['asset_domain'] . '/globalize/globalize.min.js',
+            '//' . $GLOBALS['dw_config']['asset_domain'] . '/underscore/1.8.3/underscore-min.js',
+            '//' . $GLOBALS['dw_config']['asset_domain'] . '/jquery/1.11.1/jquery.min.js'
         );
         if (substr($locale, 0, 2) != 'en') {
-            $base_js[] = '//' . $GLOBALS['dw_config']['asset_domain'] . '/cultures/globalize.culture.' . str_replace('_', '-', $locale) . '.js';
+            $base_js[] = '//' . $GLOBALS['dw_config']['asset_domain'] . '/globalize/cultures/globalize.culture.' . strtolower(str_replace('_', '-', $locale)) . '.js';
         }
     } else {
         // use local assets
         $base_js = array(
             $abs . '/static/vendor/globalize/globalize.min.js',
-            $abs . '/static/vendor/underscore/underscore-1.5.2.min.js',
-            $abs . '/static/vendor/jquery/jquery-1.11.1'.($debug ? '' : '.min').'.js'
+            $abs . '/static/vendor/underscore/underscore-1.8.3.min.js',
+            $abs . '/static/vendor/jquery/jquery-1.11.1.min.js'
         );
         if (substr($locale, 0, 2) != 'en') {
             $base_js[] = $abs . '/static/vendor/globalize/cultures/globalize.culture.' . str_replace('_', '-', $locale) . '.js';
@@ -130,12 +130,12 @@ function get_chart_content($chart, $user, $published = false, $debug = false) {
             $base_js,
             $vis_libs_cdn,
             array(
-                '/lib/' . $the_vis_js[0],
-                '/lib/' . $the_theme_js[0],
-                '/lib/' . $the_chart_js[0]
+                '//' . $GLOBALS['dw_config']['chart_domain'] . '/lib/' . $the_vis_js[0],
+                '//' . $GLOBALS['dw_config']['chart_domain'] . '/lib/' . $the_theme_js[0],
+                '//' . $GLOBALS['dw_config']['chart_domain'] . '/lib/' . $the_chart_js[0]
             )
         );
-        $stylesheets = array($chart->getID().'.all.css');
+        $stylesheets = array('//'.  $GLOBALS['dw_config']['chart_domain'] . '/' . $chart->getID() .'/' . $chart->getID().'.all.css');
         // NOTE: replace `/static/` by `assets/` in the `__static_path` value,
         //       since vis assets are handle by DatawrapperVisualization
         $replace_in = $the_vis['__static_path']; $replace_by = 'assets/'; $replace = '/static/';
@@ -216,7 +216,7 @@ function get_vis_js($vis, $visJS) {
             $all .= "\n\n\n" . file_get_contents(ROOT_PATH . 'www' . $js);
         }
     }
-    $all = \JShrink\Minifier::minify($all);
+    $all = jsminify($all);
     $all = file_get_contents(ROOT_PATH . 'www/static/js/dw-2.0.min.js') . "\n\n" . $all;
     // generate md5 hash of this file to get filename
     $vis_js_md5 = md5($all.$org);
@@ -240,15 +240,30 @@ function get_theme_js($theme, $themeJS) {
             $all .= "\n\n\n" . file_get_contents(ROOT_PATH . 'www' . $js);
         }
     }
-    $all = \JShrink\Minifier::minify($all);
+    $all = jsminify($all);
     $theme_js_md5 = md5($all.$org);
     $theme_path = 'theme/' . $theme['id'] . '-' . $theme_js_md5 . '.min.js';
     return array($theme_path, $all);
 }
 
 function get_chart_js() {
-    $js = file_get_contents(ROOT_PATH . 'www/static/js/dw/chart.base.js');
-    $min = \JShrink\Minifier::minify($js);
-    $md5 = md5($min);
-    return array('chart-'.$md5.'.min.js', $min);
+    $js   = file_get_contents(ROOT_PATH . 'www/static/js/dw/chart.base.js');
+    $hash = sha1($js);
+
+    return array('chart-'.$hash.'.min.js', jsminify($js));
+}
+
+function jsminify($code) {
+    $hash = sha1($code);
+    $tmp  = ROOT_PATH.'tmp/'.$hash.'.min.js';
+
+    if (!is_file($tmp)) {
+        $min = \JShrink\Minifier::minify($code);
+        file_put_contents($tmp, $min);
+    }
+    else {
+        $min = file_get_contents($tmp);
+    }
+
+    return $min;
 }

@@ -1,0 +1,100 @@
+{% if option.type == 'color-gradient-selector' %}
+
+    <fieldset id="{{ key }}" class="color-gradient-selector" style="margin-top:10px">
+        <div class="control-group">
+            <label class="separator">{% trans "Color gradient" %}</label>
+            <div class="pull-left">
+                <label>{% trans "Presets" %}</label>
+
+                <div class="input-append">
+                    <div class="display"></div>
+                    <div class="btn-group">
+                        <button type="button" class="preset-button btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="presets dropdown-menu"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pull-left">
+                <label>{% trans "Reverse" %}</label>
+                <a class="btn reverse-colors" href="#" title="{% trans "reverse colors" %}"><i class="icon-random"></i></a>
+            </div>
+
+            <div class="customize-gradient pull-left">
+                <label>&nbsp;</label>
+                <a class="btn" href="#"><i class="icon-wrench"></i> {% trans "customize" %}...</a>
+            </div>
+
+            <div class="edit-gradient hide-smart">
+                <div class="pull-left ">
+                    <label>{% trans "Color stops" %}</label>
+                    <div class="color-count" data-min="2" data-max="7"></div>
+                </div>
+
+                <div class="pull-left">
+                    <label>{% trans "Bookmark" %}</label>
+                    <a class="btn bookmark" href="#" title="{% trans "bookmark this gradient" %}"><i class="icon-star"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="edit-gradient hide-smart">
+            <div class="gradient-editor">
+                <div class="clear gradient-preview">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="classification">
+            <div class="control-group clear">
+                <label class="separator">{% trans "Classification" %}</label>
+                <div class="pull-left">
+                    <label>{% trans "Count" %}</label>
+                    <div class="classes-count" data-min="2" data-max="20"></div>
+                </div>
+                <div class="pull-left">
+                    <label>{% trans "Limits" %}</label>
+                    <select name="class-limit-mode" style="width:110px">
+                        <option value="equidistant"><i class="icon-pencil"></i> {% trans "equidistant" %}</option>
+                        <option value="equidistant-rounded">{% trans "equidistant rounded" %}</option>
+                        <option value="nice">{% trans "nice breaks" %}</option>
+                        <option value="quantiles">{% trans "quantiles" %}</option>
+                        <option value="custom">{% trans "custom limits" %}</option>
+                    </select>
+                </div>
+                <div class="pull-left">
+                    <label>{% trans "reset" %}</label>
+                    <button class="btn custom-limits-reset"><i class="icon-trash"></i></button>
+                </div>
+            </div>
+            <div class="control-group custom-limits">
+            </div>
+        </div>
+
+        <div class="control-group clear range">
+            <label class="separator">{% trans "Value range" %}</label>
+
+            <div class="pull-left">
+                <label>{% trans "Minimum" %}</label>
+                <input type="text" class="span1 minimum" value="" />
+            </div>
+            <div class="pull-left">
+                <label>{% trans "Center" %}</label>
+                <input type="text" class="span1 center" value="" />
+            </div>
+            <div class="pull-left">
+                <label>{% trans "Maximum" %}</label>
+                <input type="text" class="span1 maximum" value="" />
+            </div>
+            <div class="pull-left">
+                <label>{% trans "reset" %}</label>
+                <button class="btn color-range-reset"><i class="icon-trash"></i></button>
+            </div>
+        </div>
+
+    </fieldset>
+{% endif %}

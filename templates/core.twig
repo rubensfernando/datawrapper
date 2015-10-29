@@ -35,7 +35,7 @@
         });
     </script>
     <script type="text/javascript" src="/static/vendor/jquery/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="/static/vendor/underscore/underscore-1.5.2.min.js"></script>
+    <script type="text/javascript" src="/static/vendor/underscore/underscore-1.8.3.min.js"></script>
     <script type="text/javascript" src="/static/vendor/cryptojs/hmac-sha256.js"></script>
     <script type="text/javascript" src="/static/vendor/globalize/globalize.js"></script>
     <script type="text/javascript" src="/static/vendor/globalize/cultures/globalize.culture.{{ locale | replace({'_':'-'}) }}.js"></script>
@@ -62,8 +62,6 @@
     {% if not noHeader %}
 
     <header class="header">
-      {% use "login.twig" %}
-      {{ block('login') }}
 
       {% use "header.twig" %}
       {{ block('header') }}
@@ -110,7 +108,7 @@
               {% include (line) %}
             {% endfor %}
           {% else %}
-            Marvin é baseado no projeto de código aberto <a href="https://github.com/datawrapper/datawrapper">Datawrapper</a>. Esta versão é mantida pela equipe arte.online@grupofolha.com.br
+            {% if config.custom_title %}{{ config.custom_title }}{% else %}Datawrapper{% endif %} é baseado no projeto de código aberto <a href="https://github.com/datawrapper/datawrapper">Datawrapper</a>. Esta versão é mantida pela equipe <a href="mailto:arte.online@grupofolha.com.br">arte.online@grupofolha.com.br</a>.
           {% endif %}
         </p>
         {% if config.footer_links %}
@@ -167,5 +165,7 @@ $(function() {
     {{ hook('core_after_body') }}
     {# For backwards compatibility, we call the following hook as well. In 2.x, this will be gone and only the above one is used. #}
     {{ hook('after_core_body') }}
+    {% use "ga.twig" %}
+    {{block('analytics')}}
   </body>
 </html>

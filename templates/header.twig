@@ -74,10 +74,10 @@
                 </a>
 
                 <a class="brand" href="/">
-                    {% if custom_logo %}
-                        <img src="{{ custom_logo }}" />
+                    {% if config.custom_logo %}
+                        <img src="/static/custom/{{ config.custom_logo }}" />
                     {% endif %}
-                    {% if config.custom_title %}{{ config.custom_title }}{% else %}Datawrapper{% endif %}<span class="beta">{{ config.custom_title_tag }}</span>
+                    <span class="beta">{{ config.custom_title_tag }}</span>
                 </a>
 
                 <div class="nav-collapse">

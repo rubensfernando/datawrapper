@@ -77,11 +77,11 @@ class DatawrapperSession {
             return $GLOBALS['dw_config']['languages'][0]['id'];
         }
 
-        return 'en_US';
+        return 'pt_BR';
     }
 
     private static function getConfiguredLocales() {
-        $locales = array('en_US');
+        $locales = array('pt_BR');
 
         if (!empty($GLOBALS['dw_config']['languages'])) {
             foreach ($GLOBALS['dw_config']['languages'] as $loc) {
@@ -95,7 +95,7 @@ class DatawrapperSession {
     }
 
     private static function getAvailableLocales() {
-        $locales = array('en_US');
+        $locales = array('pt_BR');
 
         foreach (glob(ROOT_PATH . 'locale/*_*.json') as $l) {
             $locales[] = substr(basename($l), 0, 5);

@@ -278,6 +278,7 @@ define(['handsontable'], function(handsontable) {
 
             $('#data-preview .htCore thead tr:first-child th:first-child').off('click').on('click', function() {
                 chart.set('metadata.data.transpose', !chart.get('metadata.data.transpose', false));
+                ht.render();
             });
 
             function isNone(val) {
@@ -328,7 +329,7 @@ define(['handsontable'], function(handsontable) {
         } // end updateTable()
 
         function reload(f) {
-            chart.load().done(function(ds) {
+            chart.load(dw.backend.__currentData).done(function(ds) {
                 dataset = ds;
                 updateTable();
             });
