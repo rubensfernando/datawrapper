@@ -12,7 +12,7 @@
         },
 
         groupAfter: function() {
-            return Number(this.get('group-slice-after') || 5)-1;
+            return Number(this.get('group-slice-after') || 12)-1;
         },
 
         render: function(el) {
